@@ -10,7 +10,8 @@ const articleControllerClass = require('./controllers/article')
 const articleController = new articleControllerClass()
 
 const articleRoutes = require('./routes/article');
-app.use('/', articleRoutes);
+app.get('/', (req, res) => articleController.getAllArticles(req, res));
+app.get('/article/:slug', (req, res) => articleController.getArticleBySlug(req, res));
 
 app.listen(3025, () => {
     console.log('App is started at http://localhost:3025')

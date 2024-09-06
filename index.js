@@ -16,7 +16,8 @@ const articleRoutes = require('./routes/article');
 app.get('/', (req, res) => articleController.getAllArticles(req, res));
 app.get('/article/:slug', (req, res) => articleController.getArticleBySlug(req, res));
 app.get('/author/:id', (req, res) => authorController.getAuthorById(req, res));
-app.post('/article/edit/:id', (req, res) => articleController.updateArticle(req, res));
+app.all('/article/edit/:id', (req, res) => articleController.updateArticle(req, res));
+app.all('/article/delete/:id', (req, res) => articleController.deleteArticle(req, res));
 app.post('/article/create', (req, res) => articleController.createNewArticle(req, res));
 
 app.listen(3025, () => {

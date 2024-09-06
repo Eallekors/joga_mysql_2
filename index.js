@@ -16,7 +16,7 @@ const articleRoutes = require('./routes/article');
 app.get('/', (req, res) => articleController.getAllArticles(req, res));
 app.get('/article/:slug', (req, res) => articleController.getArticleBySlug(req, res));
 app.get('/author/:id', (req, res) => authorController.getAuthorById(req, res));
-
+app.post('/article/create', (req, res) => articleController.createNewArticle(req, res));
 
 app.listen(3025, () => {
     console.log('App is started at http://localhost:3025')

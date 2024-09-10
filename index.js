@@ -1,25 +1,31 @@
 //app pack
 const express = require('express')
-const bodyParser = require('body-parser')
+const sessions = require('express-session')
 
 const app = express()
-app.use(bodyParser.urlencoded({ extended: false}));
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-const articleControllerClass = require('./controllers/article')
-const articleController = new articleControllerClass()
-const authorControllerClass = require('./controllers/author')
-const authorController = new authorControllerClass();
-
+app.use(sessions({
+    secret: "thisismysecretkey",
+    saveUninitialized: true,
+    cookie: {maxAge: 100 * 60 * 60 * 24},
+    resave: false
+}))
 
 const articleRoutes = require('./routes/article');
-app.get('/', (req, res) => articleController.getAllArticles(req, res));
-app.get('/article/:slug', (req, res) => articleController.getArticleBySlug(req, res));
-app.get('/author/:id', (req, res) => authorController.getAuthorById(req, res));
-app.all('/article/edit/:id', (req, res) => articleController.updateArticle(req, res));
-app.all('/article/delete/:id', (req, res) => articleController.deleteArticle(req, res));
-app.post('/article/create', (req, res) => articleController.createNewArticle(req, res));
+const authorRoutes = require('./routes/author');
+const userRoutes = require('./routes/user');
+app.use('/', userRoutes)
+app.use('/', articleRoutes)
+app.use('/', authorRoutes)
+
+
 
 app.listen(3025, () => {
     console.log('App is started at http://localhost:3025')
 })
+
+
+
+  

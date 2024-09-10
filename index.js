@@ -2,7 +2,9 @@
 const express = require('express')
 const sessions = require('express-session')
 
+
 const app = express()
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -13,13 +15,16 @@ app.use(sessions({
     resave: false
 }))
 
+
 const articleRoutes = require('./routes/article');
 const authorRoutes = require('./routes/author');
 const userRoutes = require('./routes/user');
+const loginRoutes = require('./routes/login')
+
 app.use('/', userRoutes)
 app.use('/', articleRoutes)
 app.use('/', authorRoutes)
-
+app.use('/', loginRoutes)
 
 
 app.listen(3025, () => {

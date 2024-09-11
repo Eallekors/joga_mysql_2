@@ -27,6 +27,28 @@
     padding: 12px;
 }
 
+.article-setting { 
+    display: grid;
+    grid-gap: 24px;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 15px 15px;
+}
+
+.article-setting a:link, .article-setting a:visited, .article-setting a:hover, .article-setting a:active {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.article-setting article {
+    border-bottom: #666 5px solid;
+}
+
+.article-setting h2 {
+    margin: 0;
+    padding: 12px;
+}
+
 body {
     background-color: #eee;
     font-family: 'Noto Sans', sans-serif;
@@ -125,4 +147,16 @@ table td, table th {
 
 table th {
     background-color: #eee;
+}
+
+.btn {
+    background-color: #797979;
+        border-style: solid;
+        border-radius: 16px;
+        border-color: rgb(66, 66, 66);
+        float:right;
+        color: rgb(238, 238, 238) !important;
+        padding: 5px 15px;
+        text-decoration: none;
+        text-align: center;
 }

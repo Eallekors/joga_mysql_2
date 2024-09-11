@@ -1,6 +1,12 @@
 <h1>Homepage</h1>  
+<div class="article-setting">
+            {{#if isAdmin}}
+                <a class="btn" href="/admin/article/create">Add articles</a>
+            {{/if}}
+</div>
 
 <div class="article-list">
+     
     {{#articles}}
         <article>
             <a href="/article/{{slug}}"><img src="/images/{{image}}"></a>

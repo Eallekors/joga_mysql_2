@@ -6,6 +6,7 @@ class articleAdminController extends articleController{
  
 
     async createNewArticle(req, res){
+        
         const newArticle = {
             name: req.body.name,
             slug: req.body.slug,
@@ -15,10 +16,12 @@ class articleAdminController extends articleController{
             author_id: req.body.author_id
         }
         const articleId = await articleModel.create(newArticle)
-        res.status(201).json({
+        /*res.status(201).json({
             message: `created article whith id ${articleId}`,
             article: {id: articleId, ...newArticle}
-        })
+        })*/
+       res.redirect('/');
+           
     }
 
     async updateArticle(req,res){
@@ -32,19 +35,17 @@ class articleAdminController extends articleController{
         }
         const articleId = req.params.id
         const updatedArticle = await articleModel.update(articleId,updatedData)
-        res.status(201).json({
+        /*res.status(201).json({
             message: `updated article whith id ${articleId}`,
             article: {id: articleId, ...updatedData}
-        })
+        })*/
+            res.redirect('/');
     }
 
     async deleteArticle(req,res){
         const articleId = req.params.id
         const deleteArticle = await articleModel.delete(articleId)
-        res.status(201).json({
-            message: `delete article whith id ${articleId}`,
-            
-        })
+        res.redirect('/');
     }
 }
 

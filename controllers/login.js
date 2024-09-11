@@ -15,19 +15,18 @@ class loginController {
                     username: check.username,
                     user_id: check.id
                 };
-    
+                console.log("Logged in");
                 // Respond with success message
-                res.json({
+                /*res.json({
                     message: 'Login successful',
-                    user_session: req.session.user
-                    
-                   
-                });
+                    user_session: req.session.user   
+                });*/
+                res.redirect('/')
             }else{
-                return res.status(400).json({ message: "Wrong password" });
+                return res.json({ message: "Wrong password" });
             }
         }else{
-            return res.status(400).json({ message: "Username doesn't exists" });
+            return res.json({ message: "Username doesn't exists" });
        
         }
     }

@@ -1,3 +1,10 @@
+{{#if isAdmin}}
+    <div>
+        <a class="btn" href="/admin/article/delete/{{#article}}{{id}}{{/article}}" >Delete article</a>
+        <a class="btn" href="/admin/article/edit/{{#article}}{{id}}{{/article}}">Edit article</a>
+
+    </div>
+{{/if}}
 {{#article}}
     <h1>{{name}}</h1>
     <p>Published {{published}}</p>

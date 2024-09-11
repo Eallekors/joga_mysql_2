@@ -12,10 +12,21 @@
     <header>
         <a href="/">Yoga Blog</a>
         <hr>
+        
+        {{#if isAuthenticated}}
+            <!-- If user is authenticated, show the logout button -->
+            <a class="btn" href="/">Logged in as {{user.username}}</a>
+            
+        {{else}}
+            <!-- If no session, show the login button -->
+            <a class="btn" href="/login">Log in</a>
+        {{/if}}
+
     </header>
     {{#msg}}<div class="alert">{{.}}</div>{{/msg}}
     <main>
         {{{body}}}
     </main>
 </body>
+
 </html>

@@ -1,7 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const loginController = require('../controllers/login')
+const loginController = require('../controllers/login');
 
-router.post('/login', (req, res) => loginController.login(req, res))
+// Handle GET request to render the login page
+router.get('/login', (req, res) => res.render('login'));
 
-module.exports = router
+// Handle POST request for login submission
+router.post('/login', (req, res) => loginController.login(req, res));
+
+module.exports = router;

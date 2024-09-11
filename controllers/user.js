@@ -28,11 +28,12 @@ class userController {
                             username: registered.username,
                             user_id: registered.id
                         }
-                        res.json({
+                        /*res.json({
                             message: 'New user is registered',
                             user:registered,
                             user_session: req.session.user
-                        })
+                        })*/
+                            res.redirect('/login')
                     })
                 }
             }

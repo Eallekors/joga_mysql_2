@@ -11,6 +11,8 @@ Can create one in the project
 
 # Installation
 Does need Node.js
+
+Necessary dependencies
 ```
 npm install
 npm install express
@@ -24,3 +26,4 @@ After installing dependencies , start project with
 ```
 node index.js
 ```
+Can access project from http://localhost:3025

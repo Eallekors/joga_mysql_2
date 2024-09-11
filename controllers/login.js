@@ -19,7 +19,6 @@ class loginController {
                 // Respond with success message
                 res.json({
                     message: 'Login successful',
-                    username: check.username,
                     user_session: req.session.user
                     
                    

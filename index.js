@@ -19,13 +19,14 @@ app.use(sessions({
 const articleRoutes = require('./routes/article');
 const authorRoutes = require('./routes/author');
 const userRoutes = require('./routes/user');
-const loginRoutes = require('./routes/login')
+const loginRoutes = require('./routes/login');
+const adminRoutes = require('./routes/admin');
 
 app.use('/', userRoutes)
 app.use('/', articleRoutes)
 app.use('/', authorRoutes)
 app.use('/', loginRoutes)
-
+app.use('/', adminRoutes)
 
 app.listen(3025, () => {
     console.log('App is started at http://localhost:3025')
